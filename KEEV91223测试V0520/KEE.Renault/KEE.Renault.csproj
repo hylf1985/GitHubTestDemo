@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80A044CF-D9AD-4A83-B4F8-48D439E345CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KEE.Renault</RootNamespace>
+    <AssemblyName>KEE.Renault</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClassINI">
+      <HintPath>..\..\..\..\..\..\MES项目\验证注塑全自动上料机与PAD与注塑机与IO808网络通讯\MES.InjectWorkStation0702\MES.InjectWorkStation\bin\Debug\ClassINI.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Controls, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Core, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.CorePlus, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.CorePlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Database, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Display.Controls, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Display.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.FGGigE, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.FGGigE.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ImageFile, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ImageFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ImageProcessing, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ImageProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Inspection, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Inspection.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Inspection.Controls, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Inspection.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Interop.Core, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.Interop.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ToolGroup, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ToolGroup.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ToolGroup.Controls, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro.ToolGroup.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro3D.Core, Version=53.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Cognex\VisionPro\ReferencedAssemblies\Cognex.VisionPro3D.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CSkin">
+      <HintPath>..\..\..\..\..\..\维多利亚\Victoria_V3.0.0.5_20201216-1\Victoria.MotorTest\bin\Debug\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HY.Redis">
+      <HintPath>..\KEE.TestPrintService\bin\Debug\HY.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="HY_Data">
+      <HintPath>..\..\..\..\..\..\MES项目\验证注塑全自动上料机与PAD与注塑机与IO808网络通讯\HY_Data.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
+    </Reference>
+    <Reference Include="RingPrinter">
+      <HintPath>..\..\..\..\..\已完成项目\Lada检测\上位机程序\LadaAoiInspection20210602\LadaInspection\bin\Debug\RingPrinter.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\..\..\..\..\MySuperSocket\Common\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\..\..\..\..\MySuperSocket\Common\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\..\..\..\..\..\MySuperSocket\Common\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\..\..\..\..\MySuperSocket\Common\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.Engine.1.6.6.1\lib\net45\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketService, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.Engine.1.6.6.1\lib\net45\SuperSocket.SocketService.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CamOperator\InspectionClass.cs" />
+    <Compile Include="Common\DataGridViewStyle.cs" />
+    <Compile Include="Common\FormFactory.cs" />
+    <Compile Include="Common\HighTest.cs" />
+    <Compile Include="Common\Serial.cs" />
+    <Compile Include="Common\SignEdge.cs" />
+    <Compile Include="Common\TransFileClass.cs" />
+    <Compile Include="Common\WarnFormShow.cs" />
+    <Compile Include="Data\TestData.cs" />
+    <Compile Include="Data\WorkOrder.cs" />
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotify.designer.cs">
+      <DependentUpon>frmNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserLogin.designer.cs">
+      <DependentUpon>FrmUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LightControl\LightControl.cs" />
+    <Compile Include="MenuForm\FrmAxiasMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmAxiasMain.designer.cs">
+      <DependentUpon>FrmAxiasMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmAxiasSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmAxiasSetting.Designer.cs">
+      <DependentUpon>FrmAxiasSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmHomePage.Designer.cs">
+      <DependentUpon>FrmHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmIOMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmIOMonitor.designer.cs">
+      <DependentUpon>FrmIOMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmNone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmNone.Designer.cs">
+      <DependentUpon>FrmNone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmQCDataTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmQCDataTest.Designer.cs">
+      <DependentUpon>FrmQCDataTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmSysSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmSysSetting.Designer.cs">
+      <DependentUpon>FrmSysSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmUserManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmUserManage.Designer.cs">
+      <DependentUpon>FrmUserManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm\FrmVisionSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm\FrmVisionSetting.Designer.cs">
+      <DependentUpon>FrmVisionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmEpsonRobot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmEpsonRobot.designer.cs">
+      <DependentUpon>FrmEpsonRobot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmFeedAxias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmFeedAxias.designer.cs">
+      <DependentUpon>FrmFeedAxias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmFeedFromInjectAxias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmFeedFromInjectAxias.designer.cs">
+      <DependentUpon>FrmFeedFromInjectAxias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmFeedRAxias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmFeedRAxias.designer.cs">
+      <DependentUpon>FrmFeedRAxias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmLabelingAxias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmLabelingAxias.designer.cs">
+      <DependentUpon>FrmLabelingAxias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmPressAltimetry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmPressAltimetry.designer.cs">
+      <DependentUpon>FrmPressAltimetry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmSplitter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmSplitter.Designer.cs">
+      <DependentUpon>FrmSplitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionForm\FrmTakeAxias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionForm\FrmTakeAxias.designer.cs">
+      <DependentUpon>FrmTakeAxias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyIO\IOC0640.cs" />
+    <Compile Include="MyIO\IOConfig.cs" />
+    <Compile Include="MyLog\Log4NetLogger.cs" />
+    <Compile Include="MyMotion\LSAxiasCommonEnum.cs" />
+    <Compile Include="MyMotion\LSMotion.cs" />
+    <Compile Include="MyMotion\LSParamCommonInit.cs" />
+    <Compile Include="MySocket\MyAppServer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Step\MyStep.cs" />
+    <Compile Include="Utility\GlobalVar.cs" />
+    <Compile Include="Utility\SplashScreen.cs" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\tpass.png" />
+    <None Include="Resources\tFail.png" />
+    <None Include="Resources\OK.png" />
+    <None Include="Resources\NG.png" />
+    <None Include="Resources\Fail.png" />
+    <None Include="Resources\Pass.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\返回原点.png" />
+    <None Include="Resources\crawl %281%29.png" />
+    <None Include="Resources\crawl.png" />
+    <None Include="Resources\第一工位.png" />
+    <None Include="Resources\第五工站.png" />
+    <None Include="Resources\第四工位.png" />
+    <None Include="Resources\第三工位.png" />
+    <None Include="Resources\第六工站.png" />
+    <None Include="Resources\第二工位.png" />
+    <None Include="Resources\收尾管理.png" />
+    <None Include="Resources\报警解除填充 %282%29.png" />
+    <None Include="Resources\报警解除填充.png" />
+    <None Include="Resources\q2.png" />
+    <None Include="Resources\bg4.png" />
+    <None Include="Resources\逆时针.png" />
+    <None Include="Resources\原点.png" />
+    <None Include="Resources\向左.png" />
+    <None Include="Resources\向右.png" />
+    <None Include="Resources\向下.png" />
+    <None Include="Resources\向上.png" />
+    <None Include="Resources\顺时针.png" />
+    <None Include="Resources\splash.png" />
+    <EmbeddedResource Include="frmNotify.resx">
+      <DependentUpon>frmNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserLogin.resx">
+      <DependentUpon>FrmUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmAxiasSetting.resx">
+      <DependentUpon>FrmAxiasSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmQCDataTest.resx">
+      <DependentUpon>FrmQCDataTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\暂停.png" />
+    <None Include="Resources\停止.png" />
+    <None Include="Resources\开始 %281%29.png" />
+    <None Include="Resources\压合.png" />
+    <None Include="Resources\测高.png" />
+    <None Include="Resources\凸轮分割器2.png" />
+    <None Include="Resources\凸轮分割器1.png" />
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmAxiasMain.resx">
+      <DependentUpon>FrmAxiasMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmHomePage.resx">
+      <DependentUpon>FrmHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmIOMonitor.resx">
+      <DependentUpon>FrmIOMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmNone.resx">
+      <DependentUpon>FrmNone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmSysSetting.resx">
+      <DependentUpon>FrmSysSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmUserManage.resx">
+      <DependentUpon>FrmUserManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm\FrmVisionSetting.resx">
+      <DependentUpon>FrmVisionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmEpsonRobot.resx">
+      <DependentUpon>FrmEpsonRobot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmFeedAxias.resx">
+      <DependentUpon>FrmFeedAxias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmFeedFromInjectAxias.resx">
+      <DependentUpon>FrmFeedFromInjectAxias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmFeedRAxias.resx">
+      <DependentUpon>FrmFeedRAxias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmLabelingAxias.resx">
+      <DependentUpon>FrmLabelingAxias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmPressAltimetry.resx">
+      <DependentUpon>FrmPressAltimetry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmSplitter.resx">
+      <DependentUpon>FrmSplitter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionForm\FrmTakeAxias.resx">
+      <DependentUpon>FrmTakeAxias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="Config\log4net.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Config\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\log4net.unix.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="supersocket.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SuperSocket.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="supersocket.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GrayLed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenLed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KEE logo-200MM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedLed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R轴.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\机械手.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\机械手模组.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取料模组.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取料轴.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取料轴模组.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上料R轴.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上料轴.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上料轴1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上料轴模组.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上料轴模组1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\收料模组.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\收料轴.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\撕标机.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\撕标机模组.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关  闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最大化.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\最小化1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
